@@ -35,7 +35,7 @@ def Winner(board,sgn):
      return False
     
 def check_valid(num):
-    if len(num)==1 and int(num) < 10 and int(num) > 0:
+    if num.isdigit()==True and int(num) < 10 and int(num) > 0:
         return True
     else:
         return False
@@ -55,7 +55,7 @@ def morder(board,chosed):
     return False
 
     
-board = [["1","2","3"],["4","5","6"],["7","8","9"]]
+board = [['1','2','3'],['4','5','6'],['7','8','9']]
 draw_board(board)
 name = input("Enter your name : ")
 print("Ok!",name,"The Computer will start first")
@@ -70,14 +70,15 @@ while True:
                 horder(board,num)    
                 draw_board(board)
                 break
+            else: num = input("Wrong Input..Please enter a valid number : ")
             
     if Winner(board,"O") == True:
-            print("O is the winner !")
+            print(name,"Is The Winner !")
             break
     elif Draw(board) == True:
             print("Draw")
             break
-    print("")
+    print("Computer's Turn ! ",end="\n")
     while True:
             chosed = comp_order()
             if morder(board,chosed) == True:
@@ -87,7 +88,7 @@ while True:
             else:
                 continue
     if Winner(board,"X") == True:
-            print("X is the winner !")
+            print("Computer Is The Winner !")
             break
     elif Draw(board) == True:
             print("Draw")
